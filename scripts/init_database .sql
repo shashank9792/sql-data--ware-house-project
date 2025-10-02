@@ -10,6 +10,10 @@ Script Purpose:
 
 USE mysql;
 if exists (select 1 from sys.databases where name = 'Datawarehouse')
+BEGIN
+    ALTER DATABASE DataWarehouse SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    DROP DATABASE DataWarehouse;
+END;
 create database Datawarehouse;
 use Datawarehouse;
 create schema bronze;
