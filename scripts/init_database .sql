@@ -9,6 +9,7 @@ Script Purpose:
 */
 
 USE mysql;
+if exists (select 1 from sys.databases where name = 'Datawarehouse')
 create database Datawarehouse;
 use Datawarehouse;
 create schema bronze;
